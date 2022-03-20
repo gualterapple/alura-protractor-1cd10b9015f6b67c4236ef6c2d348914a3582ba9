@@ -1,0 +1,16 @@
+<div *ngIf="(user$ | async) as user; else login">
+    <div class="profile-menu" [class.active]="isShown" (click)="toggle()">
+        <ap-avatar [userName]="user.name"></ap-avatar>
+        <nav class="profile-menu-content">
+            <ul class="list-unstyled">
+                <li id="logout" (click)="logout(); toggle()"><i class="fa fa-sign-out mr-2"></i>SAIR</li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<ng-template #login>
+    <span class="navbar-text">
+        <a id="login-info" [routerLink]="['']">Please, login!</a>
+    </span>
+</ng-template>

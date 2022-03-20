@@ -1,0 +1,45 @@
+<h4 class="text-center">Login</h4>
+
+<form [formGroup]="loginForm" class="form mt-4" (submit)="login()">
+
+    <div class="form-group">
+        <input
+            id="username"
+            #userNameInput
+            [attr.aria-required]="loginForm.get('password').errors?.required"
+            autofocus
+            class="form-control"
+            formControlName="userName"
+            placeholder="user name">
+        <ap-vmessage
+            *ngIf="loginForm.get('userName').errors?.required"
+            text="User name is required!">
+        </ap-vmessage>
+    </div>
+
+    <div class="form-group">
+        <input
+            id="password"
+            [attr.aria-required]="loginForm.get('password').errors?.required"
+            class="form-control"
+            formControlName="password"
+            placeholder="password"
+            type="password">
+        <ap-vmessage
+            *ngIf="loginForm.get('password').errors?.required"
+            text="Password is required!">
+        </ap-vmessage>
+    </div>
+
+    <button
+        id="login-button"
+        [attr.aria-disabled]="loginForm.invalid"
+        [disabled]="loginForm.invalid"
+        class="btn btn-primary btn-block"
+        type="submit">
+        login
+    </button>
+
+</form>
+
+<p>Not a user? <a [routerLink]="['signup']">Register now</a></p>

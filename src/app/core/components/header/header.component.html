@@ -1,0 +1,28 @@
+<div class="fixed-top">
+    <ap-connection-status></ap-connection-status>
+</div>
+<header>
+    <nav class="navbar navbar-light bg-white pr-0" >
+        <a class="navbar-brand">
+            <i tabindex="0" (keyup.space)="menu.toggle()" (click)="menu.toggle()" class="fa fa-bars mr-2"></i>
+            ALURAPIC
+        </a>
+        <ap-menu #menu>
+            <ul class="list-unstyled">
+                <li>
+                    <a showIfLogged [routerLink]="['p','add']" (click)="menu.toggle()">Upload</a>
+                </li>
+            </ul>
+        </ap-menu>
+        
+        <ap-profile-menu></ap-profile-menu>
+    </nav>
+    <div class="fixed-top">
+        <ap-loading></ap-loading>
+    </div>
+    <div class="fixed-top mt-5">
+        <div class="mt-3">
+            <ap-alert></ap-alert>
+        </div>
+    </div>
+</header>

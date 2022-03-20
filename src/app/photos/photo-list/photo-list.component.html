@@ -1,0 +1,9 @@
+<div style="overflow: scroll; height: 100vh" ap-scrollable (scrollPosition)="load($event)">
+    <ap-search 
+        (onTyping)="filter = $event" [value]="filter">
+    </ap-search>
+    <ap-photos 
+        [photos]="photos | filterByDescription: filter">
+    </ap-photos>
+    <div *ngIf="loading" class="text-center">Loading...</div>
+</div>

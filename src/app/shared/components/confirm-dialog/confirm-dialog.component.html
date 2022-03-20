@@ -1,0 +1,9 @@
+<div class="ap-modal" [class.ap-modal-active]="isShown" (keydown)="handleTab($event)">
+    <div class="ap-modal-content">
+        <div class="ap-modal-title">
+            Are you sure?
+        </div>
+        <button #buttonConfirm (click)="confirm()">Yes</button>
+        <button #buttonDismiss (click)="dismiss()">No</button>
+    </div>
+</div>

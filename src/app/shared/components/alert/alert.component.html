@@ -1,0 +1,7 @@
+<ul class="list-unstyled text-right mr-3 position-absolute" style="right: 0">
+    <li *ngFor="let alert of alerts">
+        <span role="alert" class="d-inline-block {{ getAlertClass(alert) }}">
+            {{ alert.message }}
+        </span>
+    </li>
+</ul>

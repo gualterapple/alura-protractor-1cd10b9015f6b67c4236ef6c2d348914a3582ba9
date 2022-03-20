@@ -1,0 +1,41 @@
+.ap-modal {
+    padding: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: -600px; /* 100vh has bug with console open */
+    z-index: 10000;
+    transition: top 0.3s ease-out;
+}
+
+.ap-modal-content {
+    position: relative;
+    font-family: Helvetica, sans-serif;
+    background: #f0f0f0;
+    width: 30%;
+    min-width: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 2em;
+    margin-top: 10%;
+    box-shadow: 2px 2px 10px black;
+}
+
+.ap-modal-content button {
+    font-size: 1.1em;
+    padding: 0.5em 1.5em;
+}
+
+.ap-modal-content button:nth-child(2n+1) {
+    margin-left: 1em;
+}
+
+.ap-modal-title {
+    padding: 0;
+    margin: 0 0 1em 0;
+}
+
+.ap-modal-active {
+    top: 0;
+}

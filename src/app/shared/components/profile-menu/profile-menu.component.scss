@@ -1,0 +1,56 @@
+.profile-menu {
+    position: relative;
+}
+.profile-menu-content {
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    margin: 0.2em 0 0 0;
+    color: #747c81;
+    background: #fff;
+    border-radius: 3px;
+    border: solid 1px #e3e8ed;
+    padding: 0;
+    transition: all 0.4s;
+    z-index: -1; /* avoid clicking when invisible */
+}
+
+.profile-menu-content:after {
+    position: absolute;
+    top: -1.3em;
+    right: 4px;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #fff; 
+}
+
+.profile-menu-content:before {
+    position: absolute;
+    top: -1.6em;
+    right: 1px;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 13px solid transparent;
+    border-bottom-color: #e3e8ed; 
+}
+
+.profile-menu-content ul {
+    padding: 0;
+    margin: 0;
+}
+
+.profile-menu-content ul li {
+    padding: 1em;
+}
+    
+.profile-menu-content ul li:not(:first-child) {   
+    border-top: solid 1px #e3e8ed; 
+}
+
+.profile-menu.active .profile-menu-content {
+    z-index: 1; /* bring to front */
+    opacity: 1;
+}

@@ -1,0 +1,11 @@
+<div class="connection-status-panel" [class.active]="show">
+    <p 
+        class="connection-message"  
+        [ngClass]="{ 
+            'connection-offline': !connectionStatus.online, 
+            'connection-online': connectionStatus.online 
+        }"
+    >
+        {{ message }}
+    </p>
+</div>

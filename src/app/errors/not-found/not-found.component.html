@@ -1,0 +1,15 @@
+<div class="text-center">
+    <h2>This page is not available</h2>
+    <p>
+        The link you have accessed may be broken or 
+        the page may have been removed.
+    </p>
+</div>
+<form class="text-center" #f="ngForm">
+    <p>Take your time, type something! :) It's an example of template driven forms! But I prefer Model Driven Forms! Only lower case is allowed :)</p>
+    <!-- the name atribute is required, don't forget! If it's omiited, you will receive a strange error message -->
+    <input #userName="ngModel" name="userName" [(ngModel)]="text" lowerCase>
+    {{ text }}
+    <p *ngIf="userName?.errors?.lowerCase">Text must be in lowercase</p>
+    <input ap-phone-mask2  name="phone">
+</form>

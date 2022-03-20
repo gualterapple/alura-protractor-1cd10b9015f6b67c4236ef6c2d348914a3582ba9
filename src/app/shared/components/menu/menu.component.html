@@ -1,0 +1,19 @@
+<div 
+    aria-controls="menu-bar"
+    [attr.aria-expanded]="isShown"
+    [class.active-menu]="isShown"
+    role="navigation">
+    <div id="menu-bar" class="menu-bar">
+        <i 
+            tabindex="0" 
+            class="fa fa-window-close" 
+            (keyup.space)="toggle()" 
+            (click)="toggle()">
+        </i>
+        <ng-content></ng-content>
+    </div>
+    <div 
+        aria-hidden="true"
+        class="overlay" 
+        (click)="toggle()"></div>
+</div>

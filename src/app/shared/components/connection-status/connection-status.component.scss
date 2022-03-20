@@ -1,0 +1,32 @@
+.connection-status-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 50%;
+    top: -100px;
+    margin: 2px auto;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.connection-status-panel.active {
+    top: 0;
+}
+
+.connection-message {
+    padding: 0.5em;
+    margin: 0;
+    box-shadow: 1px 1px 5px black;
+    transition: 0.3s;
+}
+
+.connection-offline {
+    color: red;
+    background: Cornsilk ;
+}
+
+.connection-online {
+    color: white;
+    font-weight: bold;
+    background: LightSkyBlue;
+}
