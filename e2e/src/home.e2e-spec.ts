@@ -1,35 +1,38 @@
-import { browser, element, by, protractor } from 'protractor';
+import { HomePage } from './home.po';
+import { PhotoDetailPage } from './photo-detail.po';
 
 describe('Home Page', () => {
 
+  let homePage: HomePage;
+  let photoDetailPage: PhotoDetailPage;
+
   beforeEach( async () => {
-    await browser.get(`${browser.baseUrl}/#/user/flavio`);
+    homePage = new HomePage();
+    photoDetailPage = new PhotoDetailPage();
+    await homePage.navigateTo();
+
   });
 
 
   it('Should navigate to user profile', async () => {
-    const title = await browser.getTitle();
-    expect(title).toEqual('Timeline');
+    const title = await homePage.getWindowTitle();
+    expect(title).toEqual(HomePage.PAGE_TITLE);
   });
 
   it('Should display a list of photos', async () => {
-    const list = element.all(by.css('.photo'));
-    const photoListSize = await list.count();
+    const photoListSize = await homePage.getPhotoListSize();
     expect(photoListSize).toBeGreaterThan(0);
    });
 
    it('Should navigate to photo detail when photo navigation is triggered', async () => {
-    const firstElement = element.all(by.css('.photo')).first();
-    await firstElement.sendKeys(protractor.Key.ENTER);
-    const title = await browser.getTitle();
-    expect(title).toBe('Photo detail');
+    await homePage.clickOnFirstItemFromPhotoList();
+    const title = await photoDetailPage.getWindowTitle();
+    expect(title).toBe(PhotoDetailPage.PAGE_TITLE);
    });
 
    it('Should list one item when filtering by word "farol"', async () => {
-    const searchInput = element(by.css('ap-search input[type=search]'));
-    await searchInput.sendKeys('farol');
-    const list = element.all(by.css('.photo'));
-    const photoListSize = await list.count();
+    await homePage.fillSearchInputWith('farol');
+    const photoListSize = await homePage.getPhotoListSize();
     expect(photoListSize).toBe(1);
    });
 
