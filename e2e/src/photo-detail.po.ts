@@ -1,4 +1,4 @@
-import { browser } from "protractor";
+import { browser, by, element } from "protractor";
 
 export class PhotoDetailPage
 {
@@ -8,5 +8,18 @@ export class PhotoDetailPage
   getWindowTitle()
   {
     return browser.getTitle();
+  }
+
+  fillComment(text: string){
+    return element(by.css('')).sendKeys(text);
+  }
+
+  publishComment() {
+    return element(by.css('button[type=submit]')).click();
+  }
+
+  getCommentListSize(){
+    return element.all(by.css('ap-photo-comments li'))
+    .count();
   }
 }
