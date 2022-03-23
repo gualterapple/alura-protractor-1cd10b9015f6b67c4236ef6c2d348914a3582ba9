@@ -36,5 +36,28 @@ exports.config = {
                 displayStacktrace: StacktraceOption.PRETTY
             }
         }));
+
+        //Garantindo login antes de qualquer teste
+        // @ts-ignore
+        browser.driver.get('http://localhost:4200/#/home');
+        // @ts-ignore
+        browser.driver.findElement(by.id('username'))
+            .sendKeys('flavio');
+        // @ts-ignore
+        browser.driver.findElement(by.id('password'))
+            .sendKeys('123');
+        // @ts-ignore
+        browser.driver.findElement(by.id('login-button'))
+            .click();
+
+        // @ts-ignore
+        return browser.driver.wait(() => {
+            // @ts-ignore
+            return browser.driver.getCurrentUrl().then(url => {
+                return /user/.test(url);
+            });
+        }, 10000);
+
+
     }
 };

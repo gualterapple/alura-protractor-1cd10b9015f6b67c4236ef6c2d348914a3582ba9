@@ -11,7 +11,7 @@ export class PhotoDetailPage
   }
 
   fillComment(text: string){
-    return element(by.css('')).sendKeys(text);
+    return element(by.css('textarea.form-control')).sendKeys(text);
   }
 
   publishComment() {
@@ -21,5 +21,10 @@ export class PhotoDetailPage
   getCommentListSize(){
     return element.all(by.css('ap-photo-comments li'))
     .count();
+  }
+
+  navigateTo(id: number)
+  {
+    return browser.get(`${browser.baseUrl}/#/p/${id}`);
   }
 }
