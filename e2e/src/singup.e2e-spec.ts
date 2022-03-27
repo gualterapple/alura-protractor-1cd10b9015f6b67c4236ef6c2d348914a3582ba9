@@ -1,9 +1,11 @@
 import { browser, logging } from "protractor";
+import { SignInPage } from "./signin";
 import { SignUpPage } from "./signup.po";
 
 describe('Photo Detail Page', () => {
 
   let signUpPage: SignUpPage = null;
+  let signInPage: SignInPage = null;
 
   afterEach( async () => {
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
@@ -14,6 +16,7 @@ describe('Photo Detail Page', () => {
 
   beforeEach( async () => {
     signUpPage = new SignUpPage();
+    signInPage = new SignInPage();
     await signUpPage.navigateTo();
   });
 
@@ -31,6 +34,8 @@ describe('Photo Detail Page', () => {
     const password = `12345678`;
     await signUpPage.fillPasswordField(password);
     await signUpPage.register();
+    const title = await signInPage.getWindowTitle();
+    expect(title).toEqual(SignInPage.PAGE_TITLE);
   });
 
 });
