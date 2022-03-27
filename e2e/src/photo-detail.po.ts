@@ -25,6 +25,6 @@ export class PhotoDetailPage
 
   navigateTo(id: number)
   {
-    return browser.get(`${browser.baseUrl}/#/p/${id}`);
+    return browser.get(`${browser.baseUrl}#/p/${id}`);
   }
 }
