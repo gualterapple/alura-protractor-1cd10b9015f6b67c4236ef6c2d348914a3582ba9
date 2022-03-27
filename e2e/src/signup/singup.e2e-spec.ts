@@ -30,12 +30,12 @@ describe('Sign up User', () => {
 
   it('Should register a user', async () => {
     const randomPrefix = Math.round(Math.random() * 100000);
-    await signUpPage.fillEmailField(`email${randomPrefix}@email.com`);
-    await signUpPage.fillFullNameField(`Some Name ${randomPrefix}`);
+    await signUpPage.fillField('email', `email${randomPrefix}@email.com`);
+    await signUpPage.fillField('fullName', `Some Name ${randomPrefix}`);
     const userName = `user${randomPrefix}`;
-    await signUpPage.fillUserNameField(userName);
+    await signUpPage.fillField('userName', userName);
     const password = `12345678`;
-    await signUpPage.fillPasswordField(password);
+    await signUpPage.fillField('password', password);
     await signUpPage.register();
     const title = await signInPage.getWindowTitle();
     expect(title).toEqual(SignInPage.PAGE_TITLE);

@@ -37,6 +37,11 @@ exports.config = {
             }
         }));
 
+        // @ts-ignore
+        by.addLocator('formControlName', text => {
+          return document.querySelector(`[formcontrolname=${text}]`);
+        });
+
         //Garantindo login antes de qualquer teste
         // @ts-ignore
         browser.driver.get('http://localhost:4200/#/home');
