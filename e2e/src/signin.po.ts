@@ -4,19 +4,14 @@ export class SignInPage
 {
   static PAGE_TITLE = 'Sign in';
 
-  navigateTo()
-  {
-    return browser.get(`${browser.baseUrl}#/home/signin`);
-  }
-
   getWindowTitle()
   {
     return browser.getTitle();
   }
 
-  fillEmailField(text: string)
+  fillUserNameField(text: string)
   {
-    return element(by.css('input[formcontrolname=email]'))
+    return element(by.css('input[formcontrolname=userName]'))
     .sendKeys(text);
   }
 
